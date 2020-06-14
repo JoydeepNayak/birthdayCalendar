@@ -24,7 +24,7 @@ class CardContainer extends React.PureComponent {
         <div className="card-container" key={index}>
           <div className="card-head">{day}</div>
           <div className="contents-container">
-            {initialCount === 0 && <img src={icon} height="159px" width="159px"></img>}
+            {initialCount === 0 && <img src={icon} alt="No birthdays" height="159px" width="159px"></img>}
             {initialCount !== 0 && initials &&
               initials.map((initial, ind) => {
                 return (
@@ -38,7 +38,8 @@ class CardContainer extends React.PureComponent {
             }
           </div>
           <div>
-            {initials && `${initialCount} ${initialCount > 1 || initialCount === 0 ? "birthdays" : "birthday"}`}
+            {initials && initialCount !== 0 && `${initialCount} ${initialCount > 1 ? "birthdays" : "birthday"}`}
+            {initials && initialCount === 0 && "No birthdays"}
           </div>
         </div>
       )
