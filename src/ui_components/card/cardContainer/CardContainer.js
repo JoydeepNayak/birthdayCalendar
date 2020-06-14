@@ -13,11 +13,17 @@ class CardContainer extends React.PureComponent {
   render() {
     const weekDays = ["SUN", "MON", "TUES", "WED", "THURS", "FRI", "SAT"];
     const domElement = weekDays.map((day, index) => {
-      let initials = this.props.userData && this.props.userData.map(user => {
+      // sort user based on age
+      let sortUsers = this.props.userData && this.props.userData.sort((user1, user2) => {
+        return new Date(user1.birthday) - new Date(user2.birthday)
+      });
+      // create initials from name
+      let initials = sortUsers && sortUsers.map(user => {
         return (index === new Date(user.birthday).getDay()) && user.name.split(" ").map(name => {
           return name.split("")[0]
         }).join("");
       });
+      // counter for no. of users in appropriate date
       const initialCount = initials && initials.filter(intl => intl !== false).length;
       return (
         // create initials container dynamically.
