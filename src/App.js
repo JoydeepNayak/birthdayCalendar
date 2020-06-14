@@ -12,19 +12,7 @@ class App extends Component {
       inputYear: "1993"
     }
   }
-
-  // componentDidMount() {
-
-  // }
-
-  // static getDerivedStateFromProps(props, state) {
-  //   if (props.catDetails !== state.catDetails) {
-  //     return {
-  //       catDetails: props.catDetails
-  //     }
-  //   }
-  //   return null;
-  // }
+  
   updateYear = (event) => {
     this.setState({ inputYear: event.target.value })
   }

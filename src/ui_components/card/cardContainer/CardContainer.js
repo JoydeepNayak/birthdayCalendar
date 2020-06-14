@@ -1,6 +1,6 @@
 import React from 'react';
 import "./CardContainer.css";
-import icon from "../../../../public/favicon.ico";
+import icon from "../../../utilities/no-initial.png";
 
 class CardContainer extends React.PureComponent {
   constructor(props) {
@@ -18,16 +18,18 @@ class CardContainer extends React.PureComponent {
           return name.split("")[0]
         }).join("");
       });
+      const initialCount = initials && initials.filter(intl => intl !== false).length;
       return (
         // create initials container dynamically.
         <div className="card-container" key={index}>
           <div className="card-head">{day}</div>
           <div className="contents-container">
-            {initials &&
+            {initialCount === 0 && <img src={icon} height="159px" width="159px"></img>}
+            {initialCount !== 0 && initials &&
               initials.map((initial, ind) => {
                 return (
                   <div key={ind}>
-                    {initial && <div className="card-contents" style={{background: `#${(Math.random()*0xFFFFFF<<0).toString(16)}`}}>
+                    {initial && <div className="card-contents" style={{ background: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}` }}>
                       {initial}
                     </div>}
                   </div>
@@ -35,18 +37,12 @@ class CardContainer extends React.PureComponent {
               })
             }
           </div>
-          {/* <div>
-            {initials && initials.filter(intl => intl !== false).length + "birthdays"}
-          </div> */}
+          <div>
+            {initials && `${initialCount} ${initialCount > 1 || initialCount === 0 ? "birthdays" : "birthday"}`}
+          </div>
         </div>
       )
     });
-    const count = weekDays.map((day, index) => {
-      this.props.userData && this.props.userData.map(user => {
-        console.log(user)
-      });
-    })
-    console.log(count)
     return (
       <div className="card-odd-row">
         {domElement}
