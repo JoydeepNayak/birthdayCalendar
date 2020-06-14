@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  align-items: center;
+}
+.app-container {
+  min-height: 100vh;
+  background: #bfc7c7;
+  width: auto;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  background: #0a56ce;
+  padding-left: 3%;
+  color: #f1e9e9;
+}

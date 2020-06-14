@@ -1,0 +1,41 @@
+
+.card-container {
+    background: #ffff;
+    height: 199px;
+    width: 159px;
+    margin: 15px;
+    overflow: auto;
+  }
+  .card-head {
+    height: 40px;
+    background: #9d32dc94;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5%;
+    color: #f1e9e9;
+  }
+  .card-odd-row{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .card-odd-row div:nth-child(1) {
+    /* margin: 50px; */
+  }
+.card-contents {
+    min-height: 53px;
+    min-width: 53px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-contents ~ div:nth-child(even) {
+    background: green;
+  }
+.contents-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 159px;
+}
