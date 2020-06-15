@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import CardContainer from "./ui_components/card/cardContainer/CardContainer";
 
-import { getUserData, addAgeOfCatById, saveClickedCatDetails } from './actions/userDetails_action';
+import { getUserData } from './actions/userDetails_action';
 
 class App extends Component {
   constructor(props) {
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps, { getUserData, addAgeOfCatById, saveClickedCatDetails })(App);
+export default connect(mapStateToProps, { getUserData })(App);
